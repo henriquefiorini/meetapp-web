@@ -9,9 +9,9 @@ import rootSaga from './modules/rootSaga';
 
 const persistedReducer = persistReducers(rootReducer);
 
-const store = createStore(persistedReducer, enhancer);
-const persistor = persistStore(store);
+const Store = createStore(persistedReducer, enhancer);
+const Persistor = persistStore(Store);
 
 middlewares.saga.run(rootSaga);
 
-export { store, persistor };
+export { Store, Persistor };
