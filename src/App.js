@@ -7,6 +7,7 @@ import { store, persistor } from './store';
 import { history } from './services';
 
 import GlobalStyle from './styles';
+import Routes from './routes';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <PersistGate persistor={persistor}>
         <Router history={history}>
           <GlobalStyle />
-          <p>Hello World!</p>
+          <Routes />
         </Router>
       </PersistGate>
     </Provider>

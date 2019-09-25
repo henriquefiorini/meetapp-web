@@ -28,6 +28,7 @@ export default createGlobalStyle`
     font-weight: normal;
     line-height: 1.5;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
   a {
