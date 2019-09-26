@@ -8,7 +8,7 @@ function Form({ initialData, validationSchema, onSubmit, children }) {
   const [errors, setErrors] = useState({});
 
   function getValue(fieldName) {
-    return data[fieldName];
+    return data[fieldName] ? data[fieldName] : '';
   }
 
   function setValue(fieldName, value) {
