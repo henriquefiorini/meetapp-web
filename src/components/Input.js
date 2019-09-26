@@ -12,14 +12,14 @@ function Input({
   readOnly,
   disabled,
 }) {
-  const { fieldName, error, defaultValue, handleChange } = useField(name);
+  const { fieldName, value, error, handleChange } = useField(name);
 
   const fieldProps = {
     id: fieldName,
     name: fieldName,
     type,
     placeholder,
-    defaultValue,
+    value,
     readOnly,
     disabled,
     onChange: handleChange,

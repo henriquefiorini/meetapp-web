@@ -3,19 +3,18 @@ import { useContext } from 'react';
 import FormContext from './FormContext';
 
 export default function useField(fieldName) {
-  const { initialData, errors, setValue } = useContext(FormContext);
+  const { getValue, setValue, getError } = useContext(FormContext);
 
-  const defaultValue = initialData[fieldName];
-  const error = errors[fieldName];
+  const value = getValue(fieldName);
+  const error = getError(fieldName);
 
   function handleChange(e) {
-    const { value } = e.target;
-    setValue(fieldName, value);
+    setValue(fieldName, e.target.value);
   }
 
   return {
     fieldName,
-    defaultValue,
+    value,
     error,
     handleChange,
   };

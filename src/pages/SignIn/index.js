@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 
-import { Page, Form, Input } from '~/components';
+import { Page, Form, Input, Button } from '~/components';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -19,12 +19,11 @@ function SignIn() {
   }
 
   return (
-    <Page size="condensed" align="center">
-      <p>SignIn Page</p>
+    <Page title="Sign In" size="condensed" align="center">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
         <Input name="email" type="email" />
         <Input name="password" type="password" />
-        <button type="submit">Enviar</button>
+        <Button type="submit">Enviar</Button>
       </Form>
     </Page>
   );

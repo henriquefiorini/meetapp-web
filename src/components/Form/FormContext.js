@@ -1,10 +1,9 @@
 import { createContext } from 'react';
 
 const FormContext = createContext({
-  initialData: {},
-  data: {},
-  errors: {},
+  getValue: () => {},
   setValue: () => {},
+  getError: () => {},
 });
 
 export const FormProvider = FormContext.Provider;

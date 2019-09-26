@@ -7,11 +7,19 @@ function Form({ initialData, validationSchema, onSubmit, children }) {
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState({});
 
+  function getValue(fieldName) {
+    return data[fieldName];
+  }
+
   function setValue(fieldName, value) {
     setData({
       ...data,
       [fieldName]: value,
     });
+  }
+
+  function getError(fieldName) {
+    return errors[fieldName];
   }
 
   function resetForm() {
@@ -47,10 +55,9 @@ function Form({ initialData, validationSchema, onSubmit, children }) {
   return (
     <FormProvider
       value={{
-        initialData,
-        data,
-        errors,
+        getValue,
         setValue,
+        getError,
       }}
     >
       <form onSubmit={handleSubmit}>{children}</form>
