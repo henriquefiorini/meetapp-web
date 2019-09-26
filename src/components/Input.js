@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 import { useField } from '~/components/Form';
 
-function Input({ name, type, label, placeholder, multiline }) {
+function Input({
+  name,
+  type,
+  label,
+  placeholder,
+  multiline,
+  readOnly,
+  disabled,
+}) {
   const { fieldName, error, defaultValue, handleChange } = useField(name);
 
   const fieldProps = {
@@ -12,6 +20,8 @@ function Input({ name, type, label, placeholder, multiline }) {
     type,
     placeholder,
     defaultValue,
+    readOnly,
+    disabled,
     onChange: handleChange,
   };
 
@@ -30,13 +40,17 @@ Input.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   multiline: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Input.defaultProps = {
   type: 'text',
   label: null,
-  placeholder: '',
+  placeholder: null,
   multiline: false,
+  readOnly: false,
+  disabled: false,
 };
 
 export default Input;
