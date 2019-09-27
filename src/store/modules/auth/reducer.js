@@ -4,6 +4,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_UP_REQUEST,
+  SIGN_UP_SUCCESS,
   SIGN_OUT,
   AUTH_FAILURE,
 } from './actionTypes';
@@ -35,6 +36,13 @@ export default function auth(state = initialState, action) {
         draft.token = null;
         draft.isAuthenticated = false;
         draft.isLoading = true;
+        break;
+      }
+
+      case SIGN_UP_SUCCESS: {
+        draft.token = action.payload.token;
+        draft.isAuthenticated = true;
+        draft.isLoading = false;
         break;
       }
 

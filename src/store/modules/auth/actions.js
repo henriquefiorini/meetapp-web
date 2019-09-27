@@ -38,9 +38,13 @@ export function signUpRequest(name, email, password) {
   };
 }
 
-export function signUpSuccess() {
+export function signUpSuccess(token, user) {
   return {
     type: SIGN_UP_SUCCESS,
+    payload: {
+      token,
+      user,
+    },
   };
 }
 

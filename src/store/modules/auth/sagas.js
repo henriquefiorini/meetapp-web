@@ -3,12 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { Api, History } from '~/services';
 
 import { SIGN_IN_REQUEST, SIGN_UP_REQUEST } from './actionTypes';
-import {
-  signInRequest,
-  signInSuccess,
-  signUpSuccess,
-  authFailure,
-} from './actions';
+import { signInSuccess, signUpSuccess, authFailure } from './actions';
 
 export function setAuthorizationHeader({ payload }) {
   if (!payload) return;
@@ -40,16 +35,17 @@ export function* signIn({ payload }) {
 export function* signUp({ payload }) {
   try {
     const { name, email, password } = payload;
-
-    yield call(Api.post, 'users', {
+    const response = yield call(Api.post, 'users', {
       name,
       email,
       password,
     });
 
-    yield put(signUpSuccess());
+    const { token, user } = response.data;
+    Api.defaults.headers.authorization = `Bearer ${token}`;
+    yield put(signUpSuccess(token, user));
 
-    yield put(signInRequest(email, password));
+    History.push('/');
   } catch (err) {
     yield put(authFailure());
   }
