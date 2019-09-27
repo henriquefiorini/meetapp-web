@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper } from './styles';
+import { TopBar } from '~/components';
+
+import { Layout, Content } from './styles';
 
 function DefaultLayout({ children }) {
   return (
-    <Wrapper>
-      <header>Top Navigation Bar</header>
-      {children}
-    </Wrapper>
+    <Layout>
+      <TopBar />
+      <Content>{children}</Content>
+    </Layout>
   );
 }
 

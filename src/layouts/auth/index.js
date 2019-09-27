@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Container, Header, Card } from './styles';
+import { Layout, Content, Header, Card } from './styles';
 
 function AuthLayout({ children }) {
   return (
-    <Wrapper>
-      <Container>
+    <Layout>
+      <Content>
         <Header>Logo</Header>
         <Card>{children}</Card>
-      </Container>
-    </Wrapper>
+      </Content>
+    </Layout>
   );
 }
 

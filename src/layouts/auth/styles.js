@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
+export const Layout = styled.div`
+  position: relative;
+  display: block;
+  width: 100%;
   min-height: 100vh;
-  padding: 48px;
-  overflow-y: auto;
-  overflow-x: hidden;
 `;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 480px;
-  max-width: 100%;
+export const Content = styled.div`
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
 `;
 
 export const Header = styled.div`
@@ -26,8 +28,7 @@ export const Header = styled.div`
 export const Logo = styled.img``;
 
 export const Card = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: block;
   padding: 40px;
   border-radius: 8px;
   background-color: white;
