@@ -8,11 +8,11 @@ function RouteWrapper({ component: Component, isPrivate, ...rest }) {
   const isAuthenticated = false;
 
   if (!isAuthenticated && isPrivate) {
-    return <Redirect to="/" />;
+    return <Redirect to="/signin" />;
   }
 
   if (isAuthenticated && !isPrivate) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
 
   const Layout = isAuthenticated ? DefaultLayout : AuthLayout;

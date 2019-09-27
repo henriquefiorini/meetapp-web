@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import { Page, Form, Input, Button } from '~/components';
 
@@ -13,18 +14,30 @@ const schema = Yup.object().shape({
 });
 
 function SignIn() {
-  function handleSubmit(data, { resetForm }) {
+  function handleSubmit(data) {
     alert(JSON.stringify(data));
-    resetForm();
   }
 
   return (
-    <Page title="Sign In" size="condensed" align="center">
+    <Page title="Sign In" size="fullWidth">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" />
-        <Input name="password" type="password" />
-        <Button type="submit">Enviar</Button>
+        <Input
+          name="email"
+          type="email"
+          label="Email address"
+          placeholder="you@example.com"
+        />
+        <Input
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="Enter 6 characters or more"
+        />
+        <Button type="submit">Sign In</Button>
       </Form>
+      <p>
+        Don&apos;t have an account? <Link to="/signup">Sign Up</Link>
+      </p>
     </Page>
   );
 }

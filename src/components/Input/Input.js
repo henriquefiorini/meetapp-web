@@ -11,6 +11,7 @@ function Input({
   multiline,
   readOnly,
   disabled,
+  ...rest
 }) {
   const { fieldName, value, error, handleChange } = useField(name);
 
@@ -23,6 +24,7 @@ function Input({
     readOnly,
     disabled,
     onChange: handleChange,
+    ...rest,
   };
 
   return (

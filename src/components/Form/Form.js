@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { FormProvider } from './FormContext';
 
-function Form({ initialData, validationSchema, onSubmit, children }) {
+function Form({ initialData, validationSchema, onSubmit, children, ...rest }) {
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState({});
 
@@ -60,7 +60,9 @@ function Form({ initialData, validationSchema, onSubmit, children }) {
         getError,
       }}
     >
-      <form onSubmit={handleSubmit}>{children}</form>
+      <form onSubmit={handleSubmit} {...rest}>
+        {children}
+      </form>
     </FormProvider>
   );
 }

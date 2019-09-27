@@ -24,7 +24,7 @@ export default createGlobalStyle`
     background-color: white;
     color: black;
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     line-height: 1.5;
     overflow-x: hidden;
@@ -32,6 +32,7 @@ export default createGlobalStyle`
   }
 
   a {
+    color: blue;
     line-height: inherit;
     text-decoration: none;
     cursor: pointer;

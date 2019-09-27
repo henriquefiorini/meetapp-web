@@ -4,8 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: ${props => props.align};
-  margin: 0 auto;
-  padding: 0 24px;
   width: ${props => {
     if (props.size === 'condensed') return '360px';
     if (props.size === 'fullWidth') return '100%';
@@ -17,7 +15,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 `;
 
 export const Title = styled.h1`
@@ -26,5 +24,5 @@ export const Title = styled.h1`
 `;
 
 export const Content = styled.main`
-  margin-bottom: 48px;
+  display: block;
 `;
