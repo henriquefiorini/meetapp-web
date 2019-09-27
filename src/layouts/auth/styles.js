@@ -29,6 +29,7 @@ export const Logo = styled.img``;
 
 export const Card = styled.div`
   display: block;
+  margin-bottom: 48px;
   padding: 40px;
   border-radius: 8px;
   background-color: white;

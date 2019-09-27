@@ -11,8 +11,7 @@ export const Content = styled.div`
   display: block;
   width: 100%;
   max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 48px auto;
   padding-right: 24px;
   padding-left: 24px;
 `;
