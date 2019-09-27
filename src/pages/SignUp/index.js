@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
 import { Page, Form, Input, Button } from '~/components';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -15,8 +18,11 @@ const schema = Yup.object().shape({
 });
 
 function SignUp() {
-  function handleSubmit(data) {
-    alert(JSON.stringify(data));
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.auth.isLoading);
+
+  function handleSubmit({ name, email, password }) {
+    dispatch(signUpRequest(name, email, password));
   }
 
   return (
@@ -40,7 +46,9 @@ function SignUp() {
           label="Password"
           placeholder="Enter 6 characters or more"
         />
-        <Button type="submit">Create an Account</Button>
+        <Button type="submit" disabled={isLoading}>
+          Create an Account
+        </Button>
       </Form>
       <p>
         Already have an account? <Link to="/signin">Sign In</Link>
