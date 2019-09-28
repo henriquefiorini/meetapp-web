@@ -1,68 +1,52 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { MdSpa } from 'react-icons/md';
+
+export const Navigation = styled.nav`
+  display: flex;
+  width: 100%;
+  height: 64px;
+  background-color: white;
+`;
 
 export const Container = styled.div`
-  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+`;
+
+export const Logo = styled(Link)`
+  flex-shrink: 0;
+`;
+
+export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
-  padding: 0 24px;
-  border-bottom: 1px solid #eee;
-`;
-
-export const Group = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const Item = styled.div`
-  display: flex;
-  align-items: center;
-  &:not(:first-child) {
-    margin-left: 24px;
-  }
-`;
-
-export const Logo = styled(MdSpa).attrs({
-  size: 32,
-  color: 'black',
-})`
-  line-height: 1;
+  flex: 1;
 `;
 
 export const NavLink = styled(Link)`
-  color: black;
-  line-height: 1;
-  transition: color 0.2s ease-in-out;
+  margin-right: 24px;
+  margin-left: 24px;
+  font-weight: 600;
+  text-transform: capitalize;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
   &:hover,
   &:focus,
   &:active {
-    color: #f36;
+    opacity: 1;
   }
-`;
-
-export const Profile = styled(Link)`
-  display: flex;
-  align-items: center;
 `;
 
 export const Avatar = styled.img`
   height: 32px;
   width: 32px;
   border-radius: 16px;
-  background-color: #eee;
-`;
-
-export const Name = styled.span`
-  margin-left: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: black;
-  &:hover,
-  &:focus,
-  &:active {
-    color: black;
-  }
 `;
