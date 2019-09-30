@@ -5,7 +5,10 @@ import Form from './Form';
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
 
   label {
     font-weight: 600;

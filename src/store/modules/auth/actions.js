@@ -3,6 +3,8 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
   SIGN_OUT,
   AUTH_FAILURE,
 } from './actionTypes';
@@ -45,6 +47,21 @@ export function signUpSuccess(token, user) {
       token,
       user,
     },
+  };
+}
+
+export function resetPasswordRequest(email) {
+  return {
+    type: RESET_PASSWORD_REQUEST,
+    payload: {
+      email,
+    },
+  };
+}
+
+export function resetPasswordSuccess() {
+  return {
+    type: RESET_PASSWORD_SUCCESS,
   };
 }
 

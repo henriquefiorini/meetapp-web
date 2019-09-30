@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 
 import { Page, Form, Input, Button } from '~/components';
 
@@ -25,7 +25,7 @@ function SignIn() {
   }
 
   return (
-    <Page title="Sign In" size="fullWidth">
+    <Page title="Sign In">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
         <Input
           name="email"
@@ -39,6 +39,9 @@ function SignIn() {
           label="Password"
           placeholder="Enter 6 characters or more"
         />
+        <small>
+          <Link to="/reset-password">Forgot your password?</Link>
+        </small>
         <Button type="submit" disabled={isLoading}>
           Sign In
         </Button>

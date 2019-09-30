@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 
 import { Page, Form, Input, Button } from '~/components';
 
@@ -26,7 +26,7 @@ function SignUp() {
   }
 
   return (
-    <Page title="Create your free account" size="fullWidth">
+    <Page title="Create your free account">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
         <Input
           name="name"

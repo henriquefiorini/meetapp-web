@@ -2,8 +2,18 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import { Api, History } from '~/services';
 
-import { SIGN_IN_REQUEST, SIGN_UP_REQUEST } from './actionTypes';
-import { signInSuccess, signUpSuccess, authFailure } from './actions';
+import {
+  SIGN_IN_REQUEST,
+  SIGN_UP_REQUEST,
+  RESET_PASSWORD_REQUEST,
+} from './actionTypes';
+
+import {
+  signInSuccess,
+  signUpSuccess,
+  resetPasswordSuccess,
+  authFailure,
+} from './actions';
 
 export function setAuthorizationHeader({ payload }) {
   if (!payload) return;
@@ -51,8 +61,19 @@ export function* signUp({ payload }) {
   }
 }
 
+export function* resetPassword({ payload }) {
+  try {
+    const { email } = payload;
+    yield call(Api.post, 'reset_password', { email });
+    yield put(resetPasswordSuccess());
+  } catch (err) {
+    yield put(authFailure());
+  }
+}
+
 export default all([
   takeLatest('persist/REHYDRATE', setAuthorizationHeader),
   takeLatest(SIGN_IN_REQUEST, signIn),
   takeLatest(SIGN_UP_REQUEST, signUp),
+  takeLatest(RESET_PASSWORD_REQUEST, resetPassword),
 ]);
