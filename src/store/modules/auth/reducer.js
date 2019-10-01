@@ -5,10 +5,10 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
+  FORGOT_PASSWORD_REQUEST,
+  FORGOT_PASSWORD_SUCCESS,
   SIGN_OUT,
   AUTH_FAILURE,
-  RESET_PASSWORD_REQUEST,
-  RESET_PASSWORD_SUCCESS,
 } from './actionTypes';
 
 const initialState = {
@@ -48,14 +48,14 @@ export default function auth(state = initialState, action) {
         break;
       }
 
-      case RESET_PASSWORD_REQUEST: {
+      case FORGOT_PASSWORD_REQUEST: {
         draft.token = null;
         draft.isAuthenticated = false;
         draft.isLoading = true;
         break;
       }
 
-      case RESET_PASSWORD_SUCCESS: {
+      case FORGOT_PASSWORD_SUCCESS: {
         draft.token = null;
         draft.isAuthenticated = false;
         draft.isLoading = false;

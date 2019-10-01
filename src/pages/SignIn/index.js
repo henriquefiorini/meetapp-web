@@ -40,7 +40,7 @@ function SignIn() {
           placeholder="Enter 6 characters or more"
         />
         <small>
-          <Link to="/reset-password">Forgot your password?</Link>
+          <Link to="/forgot">Forgot your password?</Link>
         </small>
         <Button type="submit" disabled={isLoading}>
           Sign In
