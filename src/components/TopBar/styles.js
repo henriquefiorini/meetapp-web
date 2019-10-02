@@ -31,8 +31,11 @@ export const Menu = styled.div`
 `;
 
 export const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
   margin-right: 24px;
   margin-left: 24px;
+  color: black;
   font-weight: 600;
   text-transform: capitalize;
   opacity: 0.6;
@@ -48,5 +51,7 @@ export const NavLink = styled(Link)`
 export const Avatar = styled.img`
   height: 32px;
   width: 32px;
+  margin-right: 16px;
   border-radius: 16px;
+  background-color: #eee;
 `;

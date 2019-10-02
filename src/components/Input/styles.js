@@ -15,4 +15,9 @@ export const StyledInput = styled(Input)`
   &:focus {
     border-color: blue;
   }
+
+  &[disabled],
+  &:disabled {
+    background-color: #fafafa;
+  }
 `;

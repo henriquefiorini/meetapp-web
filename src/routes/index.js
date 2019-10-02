@@ -9,6 +9,7 @@ import {
   ForgotPassword,
   ResetPassword,
   Dashboard,
+  Profile,
 } from '~/pages';
 
 export default function Routes() {
@@ -16,9 +17,10 @@ export default function Routes() {
     <Switch>
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={SignUp} />
-      <Route exat path="/forgot" component={ForgotPassword} />
-      <Route exat path="/reset/:token" component={ResetPassword} />
+      <Route exact path="/forgot" component={ForgotPassword} />
+      <Route exact path="/reset/:token" component={ResetPassword} />
       <Route exact path="/" isPrivate component={Dashboard} />
+      <Route exact path="/profile" isPrivate component={Profile} />
     </Switch>
   );
 }

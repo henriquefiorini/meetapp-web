@@ -12,7 +12,10 @@ export default function TopBar() {
         <Logo to="/" />
         <Menu>
           <NavLink to="/">Dashboard</NavLink>
-          <Avatar src={profile && profile.avatar && profile.avatar.url} />
+          <NavLink to="/profile">
+            <Avatar src={profile && profile.avatar && profile.avatar.url} />
+            {profile && profile.name}
+          </NavLink>
         </Menu>
       </Container>
     </Navigation>
