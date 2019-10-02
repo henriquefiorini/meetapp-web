@@ -79,8 +79,16 @@ export default createGlobalStyle`
     max-width: 100%;
   }
 
+  p:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
   ul {
-    list-style-type: none;
+    padding-left: 24px;
+
+    & > li:not(:last-child) {
+      margin-bottom: 8px;
+    }
   }
 
   abbr {

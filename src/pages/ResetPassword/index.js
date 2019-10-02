@@ -29,6 +29,18 @@ function ForgotPassword({ match }) {
   return (
     <Page title="Change your password">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
+        <p>
+          In order to <strong>protect your account</strong>, make sure your
+          password:
+        </p>
+        <ul>
+          <li>Is longer than 6 characters.</li>
+          <li>
+            Does not match or significantly contain your name or email, e.g. do
+            not use &apos;yourname123&apos;.
+          </li>
+          <li>Have a mix of letters, numbers and/or special characters.</li>
+        </ul>
         <Input
           name="password"
           type="password"
