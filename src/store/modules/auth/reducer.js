@@ -7,6 +7,8 @@ import {
   SIGN_UP_SUCCESS,
   FORGOT_PASSWORD_REQUEST,
   FORGOT_PASSWORD_SUCCESS,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
   SIGN_OUT,
   AUTH_FAILURE,
 } from './actionTypes';
@@ -58,6 +60,20 @@ export default function auth(state = initialState, action) {
       case FORGOT_PASSWORD_SUCCESS: {
         draft.token = null;
         draft.isAuthenticated = false;
+        draft.isLoading = false;
+        break;
+      }
+
+      case RESET_PASSWORD_REQUEST: {
+        draft.token = null;
+        draft.isAuthenticated = false;
+        draft.isLoading = true;
+        break;
+      }
+
+      case RESET_PASSWORD_SUCCESS: {
+        draft.token = action.payload.token;
+        draft.isAuthenticated = true;
         draft.isLoading = false;
         break;
       }

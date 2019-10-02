@@ -6,12 +6,14 @@ import {
   SIGN_IN_REQUEST,
   SIGN_UP_REQUEST,
   FORGOT_PASSWORD_REQUEST,
+  RESET_PASSWORD_REQUEST,
 } from './actionTypes';
 
 import {
   signInSuccess,
   signUpSuccess,
   forgotPasswordSuccess,
+  resetPasswordSuccess,
   authFailure,
 } from './actions';
 
@@ -71,9 +73,25 @@ export function* forgotPassword({ payload }) {
   }
 }
 
+export function* resetPassword({ payload }) {
+  try {
+    const { token, password, passwordConfirmation } = payload;
+    yield call(Api.post, 'reset_password', {
+      token,
+      password,
+      passwordConfirmation,
+    });
+    yield put(resetPasswordSuccess());
+    History.push('/');
+  } catch (err) {
+    yield put(authFailure());
+  }
+}
+
 export default all([
   takeLatest('persist/REHYDRATE', setAuthorizationHeader),
   takeLatest(SIGN_IN_REQUEST, signIn),
   takeLatest(SIGN_UP_REQUEST, signUp),
   takeLatest(FORGOT_PASSWORD_REQUEST, forgotPassword),
+  takeLatest(RESET_PASSWORD_REQUEST, resetPassword),
 ]);

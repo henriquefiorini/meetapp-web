@@ -5,6 +5,8 @@ import {
   SIGN_UP_SUCCESS,
   FORGOT_PASSWORD_REQUEST,
   FORGOT_PASSWORD_SUCCESS,
+  RESET_PASSWORD_REQUEST,
+  RESET_PASSWORD_SUCCESS,
   SIGN_OUT,
   AUTH_FAILURE,
 } from './actionTypes';
@@ -62,6 +64,27 @@ export function forgotPasswordRequest(email) {
 export function forgotPasswordSuccess() {
   return {
     type: FORGOT_PASSWORD_SUCCESS,
+  };
+}
+
+export function resetPasswordRequest(token, password, passwordConfirmation) {
+  return {
+    type: RESET_PASSWORD_REQUEST,
+    payload: {
+      token,
+      password,
+      passwordConfirmation,
+    },
+  };
+}
+
+export function resetPasswordSuccess(token, user) {
+  return {
+    type: RESET_PASSWORD_SUCCESS,
+    payload: {
+      token,
+      user,
+    },
   };
 }
 
