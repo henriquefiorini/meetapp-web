@@ -5,6 +5,7 @@ export const Navigation = styled.nav`
   display: flex;
   width: 100%;
   height: 64px;
+  margin-bottom: 48px;
   background-color: white;
 `;
 
@@ -51,7 +52,7 @@ export const NavLink = styled(Link)`
 export const Avatar = styled.img`
   height: 32px;
   width: 32px;
-  margin-right: 16px;
+  margin-right: 12px;
   border-radius: 16px;
   background-color: #eee;
 `;

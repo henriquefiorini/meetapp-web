@@ -69,7 +69,12 @@ function Form({ initialData, validationSchema, onSubmit, children, ...rest }) {
 
 Form.propTypes = {
   initialData: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+      PropTypes.object,
+    ]),
   ),
   validationSchema: PropTypes.shape({
     validate: PropTypes.func.isRequired,

@@ -6,8 +6,15 @@ import {
   SIGN_OUT,
 } from '../auth/actionTypes';
 
+import {
+  UPDATE_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_FAILURE,
+} from './actionTypes';
+
 const initialState = {
   profile: null,
+  isLoading: false,
 };
 
 export default function user(state = initialState, action) {
@@ -25,6 +32,22 @@ export default function user(state = initialState, action) {
 
       case SIGN_OUT: {
         draft.profile = null;
+        break;
+      }
+
+      case UPDATE_PROFILE_REQUEST: {
+        draft.isLoading = true;
+        break;
+      }
+
+      case UPDATE_PROFILE_SUCCESS: {
+        draft.profile = action.payload.profile;
+        draft.isLoading = false;
+        break;
+      }
+
+      case UPDATE_PROFILE_FAILURE: {
+        draft.isLoading = false;
         break;
       }
 

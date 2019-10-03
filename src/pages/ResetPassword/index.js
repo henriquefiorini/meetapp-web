@@ -8,7 +8,9 @@ import { Page, Form, Input, Button } from '~/components';
 import { resetPasswordRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
-  password: Yup.string().required(),
+  password: Yup.string()
+    .min(6)
+    .required(),
   passwordConfirmation: Yup.string().when('password', (password, field) =>
     password
       ? field.required().oneOf([Yup.ref('password')], 'Passwords must match')

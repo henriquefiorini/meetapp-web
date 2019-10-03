@@ -37,7 +37,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
 
-    camelcase: 'warn',
+    camelcase: 'off',
     'no-param-reassign': 'off',
     'no-console': ['error', { allow: ['tron'] }],
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
