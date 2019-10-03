@@ -15,12 +15,12 @@ import {
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/signin" component={SignIn} />
-      <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/forgot" component={ForgotPassword} />
-      <Route exact path="/reset/:token" component={ResetPassword} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/forgot" component={ForgotPassword} />
+      <Route path="/reset/:token" component={ResetPassword} />
       <Route exact path="/" isPrivate component={Dashboard} />
-      <Route exact path="/profile" isPrivate component={Profile} />
+      <Route path="/profile" isPrivate component={Profile} />
     </Switch>
   );
 }

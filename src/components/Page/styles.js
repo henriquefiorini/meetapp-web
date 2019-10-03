@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 `;
 
 export const Title = styled.h1`

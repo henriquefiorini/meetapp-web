@@ -12,7 +12,7 @@ export const Content = styled.div`
   position: relative;
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 24px;
