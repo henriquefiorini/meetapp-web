@@ -14,13 +14,15 @@ export const StyledAvatarInput = styled.div`
   top: 24px;
   display: flex;
   align-self: flex-start;
-  margin-right: 80px;
+  order: 1;
+  margin-left: 160px;
 
   @media (max-width: 960px) {
     position: relative;
     align-self: center;
-    margin-right: 0;
+    order: 0;
     margin-bottom: 48px;
+    margin-left: 0;
   }
 
   label {
@@ -76,6 +78,7 @@ export const Panel = styled.div`
 export const Title = styled.h2`
   font-size: 20px;
   font-weight: 600;
+  text-transform: capitalize;
 
   &:not(:first-child) {
     margin-top: 40px;

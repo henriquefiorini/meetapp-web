@@ -65,7 +65,7 @@ function Profile() {
               placeholder="you@example.com"
             />
 
-            <Title>Password</Title>
+            <Title>Change password</Title>
             <Text>
               <p>
                 In order to <strong>protect your account</strong>, make sure
