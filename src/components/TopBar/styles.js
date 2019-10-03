@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Navigation = styled.nav`
   display: flex;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   padding-left: 24px;
 `;
 
-export const Logo = styled(Link)`
+export const Logo = styled(NavLink)`
   flex-shrink: 0;
 `;
 
@@ -32,7 +32,10 @@ export const Menu = styled.div`
   flex: 1;
 `;
 
-export const NavLink = styled(Link)`
+export const Link = styled(NavLink).attrs({
+  activeClassName: 'active',
+  exact: true,
+})`
   display: flex;
   align-items: center;
   margin-right: 24px;
@@ -45,6 +48,10 @@ export const NavLink = styled(Link)`
   &:hover,
   &:focus,
   &:active {
+    color: #0c344b;
+  }
+
+  &.active {
     color: #0c344b;
   }
 `;
