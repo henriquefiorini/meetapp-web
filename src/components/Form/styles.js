@@ -25,7 +25,7 @@ export const StyledForm = styled(Form)`
 
   small {
     margin-top: 8px;
-    color: #f25c54;
+    color: #ff4f56;
     font-size: 12px;
   }
 

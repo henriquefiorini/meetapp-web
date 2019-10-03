@@ -33,7 +33,7 @@ const Button = styled.button.attrs(({ type = 'button' }) => ({
       &:hover,
       &:focus,
       &:active {
-        background-color: #f36;
+        background-color: #15bd76;
       }
     `}
 

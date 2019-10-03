@@ -7,6 +7,7 @@ export const Navigation = styled.nav`
   height: 64px;
   margin-bottom: 48px;
   background-color: white;
+  box-shadow: 0px 3px 3px rgba(12, 52, 75, 0.05);
 `;
 
 export const Container = styled.div`
@@ -37,7 +38,7 @@ export const NavLink = styled(Link)`
   margin-right: 24px;
   margin-left: 24px;
   color: #7e9aa8;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
   transition: all 250ms ease 0s;
 
@@ -51,7 +52,7 @@ export const NavLink = styled(Link)`
 export const Avatar = styled.img`
   height: 32px;
   width: 32px;
-  margin-right: 12px;
+  margin-right: 8px;
   border-radius: 16px;
-  background-color: #eee;
+  background-color: #ccd9df;
 `;
