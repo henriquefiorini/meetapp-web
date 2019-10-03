@@ -42,7 +42,7 @@ function Profile() {
   }
 
   return (
-    <Page title="Profile settings">
+    <Page title="Profile">
       <Container>
         <AvatarInput avatar={profile.avatar} />
         <Panel>
@@ -66,22 +66,6 @@ function Profile() {
             />
 
             <Title>Change password</Title>
-            <Text>
-              <p>
-                In order to <strong>protect your account</strong>, make sure
-                your password:
-              </p>
-              <ul>
-                <li>Is longer than 6 characters.</li>
-                <li>
-                  Does not match or significantly contain your name or email,
-                  e.g. do not use &apos;yourname123&apos;.
-                </li>
-                <li>
-                  Have a mix of letters, numbers and/or special characters.
-                </li>
-              </ul>
-            </Text>
             <Input
               name="oldPassword"
               type="password"
@@ -100,6 +84,22 @@ function Profile() {
               label="Re-enter your new password"
               placeholder="Must match the password above"
             />
+            <Text>
+              <p>
+                In order to <strong>protect your account</strong>, make sure
+                your password:
+              </p>
+              <ul>
+                <li>Is longer than 6 characters.</li>
+                <li>
+                  Does not match or significantly contain your name or email,
+                  e.g. do not use &apos;yourname123&apos;.
+                </li>
+                <li>
+                  Have a mix of letters, numbers and/or special characters.
+                </li>
+              </ul>
+            </Text>
             <Button type="submit" disabled={isLoading}>
               Save changes
             </Button>

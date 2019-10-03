@@ -7,14 +7,15 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
 
   &:not(:last-child) {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   label {
+    color: #0c344b;
     font-weight: 600;
 
     &:not(:first-child) {
-      margin-top: 24px;
+      margin-top: 16px;
     }
   }
 
@@ -24,11 +25,11 @@ export const StyledForm = styled(Form)`
 
   small {
     margin-top: 8px;
-    color: red;
-    font-size: 13px;
+    color: #f25c54;
+    font-size: 12px;
   }
 
   button {
-    margin-top: 24px;
+    margin-top: 16px;
   }
 `;

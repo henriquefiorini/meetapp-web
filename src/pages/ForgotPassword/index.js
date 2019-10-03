@@ -36,10 +36,14 @@ function ForgotPassword() {
         </>
       ) : (
         <Form validationSchema={schema} onSubmit={handleSubmit}>
+          <p>
+            Enter your email address and we will send you a link to reset your
+            password.
+          </p>
           <Input
             name="email"
             type="email"
-            label="Enter your email address and we will send you a link to reset your password."
+            label="Email"
             placeholder="you@example.com"
           />
           <Button type="submit" disabled={isLoading}>

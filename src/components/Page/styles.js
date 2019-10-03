@@ -9,13 +9,12 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
-  font-weight: 600;
-  text-transform: capitalize;
+  font-weight: 400;
 `;
 
 export const Content = styled.main`

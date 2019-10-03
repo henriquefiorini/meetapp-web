@@ -26,7 +26,7 @@ function SignUp() {
   }
 
   return (
-    <Page title="Create your free account">
+    <Page title="Create account">
       <Form validationSchema={schema} onSubmit={handleSubmit}>
         <Input
           name="name"

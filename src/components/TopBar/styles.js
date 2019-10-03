@@ -36,16 +36,15 @@ export const NavLink = styled(Link)`
   align-items: center;
   margin-right: 24px;
   margin-left: 24px;
-  color: black;
-  font-weight: 600;
+  color: #7e9aa8;
+  font-weight: 700;
   text-transform: capitalize;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: all 250ms ease 0s;
 
   &:hover,
   &:focus,
   &:active {
-    opacity: 1;
+    color: #0c344b;
   }
 `;
 

@@ -7,21 +7,21 @@ const Button = styled.button.attrs(({ type = 'button' }) => ({
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 44px;
   padding: 0 16px;
   border-radius: 4px;
-  background-color: #f36;
-  color: #fff;
-  font-weight: 600;
+  background-color: #15bd76;
+  color: white;
+  font-weight: 700;
   user-select: none;
 
   &:hover,
   &:focus {
-    background-color: ${darken(0.025, '#f36')};
+    background-color: ${darken(0.025, '#15bd76')};
   }
 
   &:active {
-    background-color: ${darken(0.05, '#f36')};
+    background-color: ${darken(0.05, '#15bd76')};
   }
 
   ${props =>

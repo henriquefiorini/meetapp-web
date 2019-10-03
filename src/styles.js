@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
   *,
   *::before,
@@ -13,6 +13,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     outline: 0;
+    -webkit-font-smoothing: antialiased;
   }
 
   html {
@@ -22,9 +23,9 @@ export default createGlobalStyle`
 
   body {
     background-color: white;
-    color: black;
-    font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    color: #3d556b;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 14px;
     font-weight: normal;
     line-height: 1.5;
     overflow-x: hidden;
@@ -32,7 +33,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: blue;
+    color: #0f7ad8;
     line-height: inherit;
     text-decoration: none;
     cursor: pointer;

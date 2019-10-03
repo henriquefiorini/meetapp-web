@@ -5,13 +5,14 @@ export const Layout = styled.div`
   display: block;
   width: 100%;
   min-height: 100vh;
+  background-color: #eff3f5;
 `;
 
 export const Content = styled.div`
   position: relative;
   display: block;
   width: 100%;
-  max-width: 480px;
+  max-width: 400px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 24px;
@@ -30,8 +31,13 @@ export const Logo = styled.img``;
 export const Card = styled.div`
   display: block;
   margin-bottom: 48px;
-  padding: 40px;
+  padding: 32px;
   border-radius: 8px;
   background-color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 3px rgba(12, 52, 75, 0.05);
+
+  h1 {
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;

@@ -38,7 +38,7 @@ export const StyledAvatarInput = styled.div`
     &:focus,
     &:active {
       span {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(12, 52, 75, 0.8);
       }
     }
   }
@@ -60,10 +60,10 @@ export const StyledAvatarInput = styled.div`
     align-items: center;
     padding: 4px 8px;
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(12, 52, 75, 0.6);
     color: white;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
 
     svg {
       margin-right: 4px;
@@ -76,7 +76,9 @@ export const Panel = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 18px;
   font-weight: 600;
   text-transform: capitalize;
 
@@ -86,7 +88,8 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.div`
-  margin-top: 16px;
+  margin-top: 32px;
+  margin-bottom: 16px;
   font-size: 14px;
   color: #666;
 `;
