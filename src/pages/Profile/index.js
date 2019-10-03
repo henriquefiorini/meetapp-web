@@ -10,8 +10,10 @@ import { signOut } from '~/store/modules/auth/actions';
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
 const schema = Yup.object().shape({
-  name: Yup.string(),
-  email: Yup.string().email(),
+  name: Yup.string().required(),
+  email: Yup.string()
+    .email()
+    .required(),
   oldPassword: Yup.string().min(6),
   password: Yup.string()
     .min(6)
