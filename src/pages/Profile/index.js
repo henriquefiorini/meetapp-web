@@ -69,8 +69,8 @@ function Profile() {
             <Input
               name="oldPassword"
               type="password"
-              label="Old password"
-              placeholder="Enter 6 characters or more"
+              label="Current password"
+              placeholder="Enter your current password"
             />
             <Input
               name="password"

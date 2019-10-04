@@ -5,7 +5,6 @@ export const Layout = styled.div`
   display: block;
   width: 100%;
   min-height: 100vh;
-  background-color: #eff3f5;
 `;
 
 export const Content = styled.div`

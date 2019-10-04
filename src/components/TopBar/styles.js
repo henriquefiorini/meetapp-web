@@ -57,8 +57,8 @@ export const Link = styled(NavLink).attrs({
 `;
 
 export const Avatar = styled.img`
-  height: 32px;
   width: 32px;
+  height: 32px;
   margin-right: 8px;
   border-radius: 16px;
   background-color: #ccd9df;
