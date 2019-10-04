@@ -1,29 +1,32 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  position: relative;
-  display: flex;
-
-  @media (max-width: 960px) {
-    flex-direction: column;
-  }
+export const Card = styled.div`
+  display: block;
+  margin-right: auto;
+  margin-bottom: 48px;
+  margin-left: auto;
+  padding: 32px;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 3px 3px rgba(12, 52, 75, 0.05);
 `;
 
-export const StyledAvatarInput = styled.div`
-  position: sticky;
-  top: 24px;
-  display: flex;
-  align-self: flex-start;
-  order: 1;
-  margin-left: 160px;
+export const Title = styled.h2`
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+`;
 
-  @media (max-width: 960px) {
-    position: relative;
-    align-self: center;
-    order: 0;
-    margin-bottom: 48px;
-    margin-left: 0;
-  }
+export const Text = styled.div`
+  margin-bottom: 24px;
+  font-size: 14px;
+`;
+
+export const AvatarInput = styled.div`
+  display: flex;
 
   label {
     display: flex;
@@ -69,27 +72,4 @@ export const StyledAvatarInput = styled.div`
       margin-right: 4px;
     }
   }
-`;
-
-export const Panel = styled.div`
-  flex: 1;
-`;
-
-export const Title = styled.h2`
-  margin-top: 16px;
-  margin-bottom: 16px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: capitalize;
-
-  &:not(:first-child) {
-    margin-top: 40px;
-  }
-`;
-
-export const Text = styled.div`
-  margin-top: 32px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  color: #666;
 `;

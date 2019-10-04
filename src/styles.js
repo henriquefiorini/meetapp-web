@@ -22,7 +22,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: white;
+    background-color: #eff3f5;
     color: #3d556b;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 14px;

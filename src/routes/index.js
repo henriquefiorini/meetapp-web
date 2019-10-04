@@ -9,6 +9,7 @@ import {
   ForgotPassword,
   ResetPassword,
   Dashboard,
+  Meetup,
   Profile,
 } from '~/pages';
 
@@ -20,6 +21,7 @@ export default function Routes() {
       <Route path="/forgot" component={ForgotPassword} />
       <Route path="/reset/:token" component={ResetPassword} />
       <Route exact path="/" isPrivate component={Dashboard} />
+      <Route path="/meetup/:id" isPrivate component={Meetup} />
       <Route path="/profile" isPrivate component={Profile} />
     </Switch>
   );

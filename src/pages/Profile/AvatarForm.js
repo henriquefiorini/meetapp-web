@@ -7,12 +7,14 @@ import { Api } from '~/services';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
-import { StyledAvatarInput } from './styles';
+import { AvatarInput } from './styles';
 
-function AvatarInput({ avatar }) {
+function AvatarForm({ initialData }) {
   const dispatch = useDispatch();
 
-  const [previewUrl, setPreviewUrl] = useState(avatar && avatar.url);
+  const [previewUrl, setPreviewUrl] = useState(
+    initialData.avatar && initialData.avatar.url,
+  );
 
   async function handleChange(e) {
     // Upload selected file
@@ -30,7 +32,7 @@ function AvatarInput({ avatar }) {
   }
 
   return (
-    <StyledAvatarInput>
+    <AvatarInput>
       <label htmlFor="avatar">
         <img src={previewUrl} alt="" />
         <input
@@ -44,20 +46,22 @@ function AvatarInput({ avatar }) {
           Edit
         </span>
       </label>
-    </StyledAvatarInput>
+    </AvatarInput>
   );
 }
 
-AvatarInput.propTypes = {
-  avatar: PropTypes.shape({
-    id: PropTypes.number,
-    path: PropTypes.string,
-    url: PropTypes.string,
+AvatarForm.propTypes = {
+  initialData: PropTypes.shape({
+    avatar: PropTypes.shape({
+      id: PropTypes.number,
+      path: PropTypes.string,
+      url: PropTypes.string,
+    }),
   }),
 };
 
-AvatarInput.defaultProps = {
-  avatar: {},
+AvatarForm.defaultProps = {
+  initialData: null,
 };
 
-export default AvatarInput;
+export default AvatarForm;
