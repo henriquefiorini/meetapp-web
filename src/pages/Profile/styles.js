@@ -10,13 +10,6 @@ export const Card = styled(StyledCard)`
   width: 100%;
 `;
 
-export const Title = styled.h2`
-  margin-bottom: 24px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: capitalize;
-`;
-
 export const Text = styled.div`
   margin-bottom: 24px;
   font-size: 14px;

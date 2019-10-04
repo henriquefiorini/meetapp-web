@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Page, Button } from '~/components';
+import { Page, Heading, Button } from '~/components';
 
 import { signOut } from '~/store/modules/auth/actions';
 
-import { Card, Title, Text } from './styles';
+import { Card, Text } from './styles';
 
 import AvatarForm from './AvatarForm';
 import ProfileForm from './ProfileForm';
@@ -23,15 +23,15 @@ function Profile() {
   return (
     <Page>
       <Card>
-        <Title>Profile picture</Title>
+        <Heading>Profile picture</Heading>
         <AvatarForm initialData={profile} />
       </Card>
       <Card>
-        <Title>Personal information</Title>
+        <Heading>Personal information</Heading>
         <ProfileForm initialData={profile} />
       </Card>
       <Card>
-        <Title>Change password</Title>
+        <Heading>Change password</Heading>
         <Text>
           <p>
             In order to <strong>protect your account</strong>, make sure your
@@ -49,7 +49,7 @@ function Profile() {
         <PasswordForm initialData={profile} />
       </Card>
       <Card>
-        <Title>Disconnect</Title>
+        <Heading>Disconnect</Heading>
         <Button onClick={handleSignOut}>Sign out from MeetApp</Button>
       </Card>
     </Page>

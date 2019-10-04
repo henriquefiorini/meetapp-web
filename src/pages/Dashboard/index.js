@@ -7,12 +7,12 @@ import { Api } from '~/services';
 import {
   MeetupsList,
   Meetup,
-  Title,
-  Date,
-  Icon,
+  MeetupTitle,
+  MeetupDate,
+  MeetupIcon,
   Empty,
-  Emoji,
-  Text,
+  EmptyEmoji,
+  EmptyText,
 } from './styles';
 
 export default function Dashboard() {
@@ -33,17 +33,19 @@ export default function Dashboard() {
         <MeetupsList>
           {meetups.map(meetup => (
             <Meetup key={meetup.id} to={`/meetup/${meetup.id}`}>
-              <Title>{meetup.title}</Title>
-              <Date>{meetup.date}</Date>
-              <Icon />
+              <MeetupTitle>{meetup.title}</MeetupTitle>
+              <MeetupDate>{meetup.date}</MeetupDate>
+              <MeetupIcon />
             </Meetup>
           ))}
         </MeetupsList>
       ) : (
         <Empty>
-          <Emoji>(^-^*)</Emoji>
-          <Text>You don&apos;t have any meetups yet.</Text>
-          <Text>Try creating one by hitting the create button above!</Text>
+          <EmptyEmoji>(^-^*)</EmptyEmoji>
+          <EmptyText>You don&apos;t have any meetups yet.</EmptyText>
+          <EmptyText>
+            Try creating one by hitting the create button above!
+          </EmptyText>
         </Empty>
       )}
     </Page>

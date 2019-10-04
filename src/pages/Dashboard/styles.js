@@ -37,13 +37,13 @@ export const Meetup = styled(Link)`
   }
 `;
 
-export const Title = styled.h2`
+export const MeetupTitle = styled.h2`
   flex: 1;
   font-size: 16px;
   font-weight: 600;
 `;
 
-export const Date = styled.span`
+export const MeetupDate = styled.span`
   flex-shrink: 0;
   opacity: 0.8;
 
@@ -52,7 +52,7 @@ export const Date = styled.span`
   }
 `;
 
-export const Icon = styled(MdChevronRight).attrs({
+export const MeetupIcon = styled(MdChevronRight).attrs({
   size: 24,
 })`
   flex-shrink: 0;
@@ -76,12 +76,12 @@ export const Empty = styled.div`
   text-align: center;
 `;
 
-export const Emoji = styled.div`
+export const EmptyEmoji = styled.div`
   margin-bottom: 24px;
   font-size: 80px;
   opacity: 0.7;
 `;
 
-export const Text = styled.div`
+export const EmptyText = styled.div`
   font-size: 16px;
 `;
