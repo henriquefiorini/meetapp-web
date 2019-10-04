@@ -42,7 +42,7 @@ function SignIn() {
         <small>
           <Link to="/forgot">Forgot your password?</Link>
         </small>
-        <Button type="submit" disabled={isLoading}>
+        <Button primary type="submit" disabled={isLoading}>
           Sign In
         </Button>
       </Form>

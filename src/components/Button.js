@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
+const colors = {
+  default: '#eff3f5',
+  primary: '#0c344b',
+  positive: '#15bd76',
+  negative: '#ff4f56',
+};
+
 const Button = styled.button.attrs(({ type = 'button' }) => ({
   type,
 }))`
@@ -10,19 +17,35 @@ const Button = styled.button.attrs(({ type = 'button' }) => ({
   height: 44px;
   padding: 0 16px;
   border-radius: 4px;
-  background-color: #15bd76;
   color: white;
   font-weight: 700;
   user-select: none;
 
-  &:hover,
-  &:focus {
-    background-color: ${darken(0.025, '#15bd76')};
-  }
+  ${props => {
+    function setTheme(color) {
+      return css`
+        background-color: ${color};
+        ${color === colors.default &&
+          css`
+            color: #0c344b;
+          `}
 
-  &:active {
-    background-color: ${darken(0.05, '#15bd76')};
-  }
+        &:hover,
+        &:focus {
+          background-color: ${darken(0.025, color)};
+        }
+
+        &:active {
+          background-color: ${darken(0.06, color)};
+        }
+      `;
+    }
+
+    if (props.primary) return setTheme(colors.primary);
+    if (props.positive) return setTheme(colors.positive);
+    if (props.negative) return setTheme(colors.negative);
+    return setTheme(colors.default);
+  }};
 
   ${props =>
     props.disabled &&
@@ -33,24 +56,9 @@ const Button = styled.button.attrs(({ type = 'button' }) => ({
       &:hover,
       &:focus,
       &:active {
-        background-color: #15bd76;
+        pointer-events: none;
       }
-    `}
-
-  ${props =>
-    props.secondary &&
-    css`
-      background-color: #eee;
-      color: black;
-
-      &:hover,
-      &:focus {
-        background-color: ${darken(0.025, '#eee')};
-      }
-      &:active {
-        background-color: ${darken(0.05, '#eee')};
-      }
-    `}
+    `};
 `;
 
 export default Button;

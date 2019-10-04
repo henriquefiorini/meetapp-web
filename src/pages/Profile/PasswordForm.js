@@ -51,7 +51,7 @@ function PasswordForm() {
         label="Re-enter your new password"
         placeholder="Must match the password above"
       />
-      <Button type="submit" disabled={isLoading}>
+      <Button positive type="submit" disabled={isLoading}>
         Update password
       </Button>
     </Form>

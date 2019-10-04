@@ -55,7 +55,7 @@ function ForgotPassword({ match }) {
           label="Re-enter your new password"
           placeholder="Must match the password above"
         />
-        <Button type="submit" disabled={isLoading}>
+        <Button primary type="submit" disabled={isLoading}>
           Change password
         </Button>
       </Form>

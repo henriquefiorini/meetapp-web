@@ -41,7 +41,7 @@ function Profile() {
         label="Email address"
         placeholder="you@example.com"
       />
-      <Button type="submit" disabled={isLoading}>
+      <Button positive type="submit" disabled={isLoading}>
         Save changes
       </Button>
     </Form>

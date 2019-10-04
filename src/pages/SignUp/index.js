@@ -46,7 +46,7 @@ function SignUp() {
           label="Password"
           placeholder="Enter 6 characters or more"
         />
-        <Button type="submit" disabled={isLoading}>
+        <Button primary type="submit" disabled={isLoading}>
           Create an Account
         </Button>
       </Form>

@@ -50,7 +50,9 @@ function Profile() {
       </Card>
       <Card>
         <Heading>Disconnect</Heading>
-        <Button onClick={handleSignOut}>Sign out from MeetApp</Button>
+        <Button negative onClick={handleSignOut}>
+          Sign out from MeetApp
+        </Button>
       </Card>
     </Page>
   );

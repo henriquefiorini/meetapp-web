@@ -46,7 +46,7 @@ function ForgotPassword() {
             label="Email"
             placeholder="you@example.com"
           />
-          <Button type="submit" disabled={isLoading}>
+          <Button primary type="submit" disabled={isLoading}>
             Send password reset email
           </Button>
         </Form>
