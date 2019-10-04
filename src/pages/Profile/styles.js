@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
-  display: block;
+import { Card as StyledCard } from '~/components';
+
+export const Card = styled(StyledCard)`
   margin-right: auto;
   margin-bottom: 48px;
   margin-left: auto;
-  padding: 32px;
   max-width: 640px;
   width: 100%;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0px 3px 3px rgba(12, 52, 75, 0.05);
 `;
 
 export const Title = styled.h2`

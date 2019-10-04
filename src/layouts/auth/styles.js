@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Card as StyledCard } from '~/components';
+
 export const Layout = styled.div`
   position: relative;
   display: block;
@@ -27,13 +29,8 @@ export const Header = styled.div`
 
 export const Logo = styled.img``;
 
-export const Card = styled.div`
-  display: block;
+export const Card = styled(StyledCard)`
   margin-bottom: 48px;
-  padding: 32px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0px 3px 3px rgba(12, 52, 75, 0.05);
 
   h1 {
     margin-right: auto;
