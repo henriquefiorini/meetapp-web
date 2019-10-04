@@ -28,7 +28,7 @@ export const Meetup = styled(Link)`
 
   &:active {
     box-shadow: 0px 2px 3px rgba(12, 52, 75, 0.05);
-    transform: translateY(2px);
+    transform: translateY(1px);
   }
 
   @media (max-width: 440px) {
@@ -39,8 +39,12 @@ export const Meetup = styled(Link)`
 
 export const MeetupTitle = styled.h2`
   flex: 1;
+  min-width: 0;
   font-size: 16px;
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const MeetupDate = styled.span`
