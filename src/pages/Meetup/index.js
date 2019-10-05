@@ -48,10 +48,7 @@ function Meetup({ match }) {
                 <MdPersonPin size={36} />
                 <div>
                   <strong>Location</strong>
-                  <p>
-                    {meetup.location} Location Location Location Location
-                    Location Location Location
-                  </p>
+                  <p>{meetup.location}</p>
                 </div>
               </MediaObject>
             </Location>

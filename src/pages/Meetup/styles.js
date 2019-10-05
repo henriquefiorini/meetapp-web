@@ -5,7 +5,7 @@ import { Card } from '~/components';
 export const Grid = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-columns: repeat(auto-fit, 444px);
   grid-template-areas: 'image image' 'date location' 'description description';
 
   & > * {

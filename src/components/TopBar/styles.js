@@ -44,7 +44,6 @@ export const Link = styled(NavLink).attrs({
 })`
   display: flex;
   align-items: center;
-  margin-right: 24px;
   margin-left: 24px;
   color: #7e9aa8;
   font-weight: 600;
