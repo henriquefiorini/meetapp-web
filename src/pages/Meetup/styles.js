@@ -5,18 +5,22 @@ import { Card } from '~/components';
 export const Grid = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: minmax(auto, 50%) minmax(auto, 50%);
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
   grid-template-areas: 'image image' 'date location' 'description description';
+
+  & > * {
+    overflow: hidden;
+  }
 `;
 
 export const Image = styled(Card)`
   grid-area: image;
+
   height: 320px;
   background-image: url(${props => props.src});
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  overflow: hidden;
 `;
 
 export const Date = styled(Card)`
@@ -35,28 +39,28 @@ export const MediaObject = styled.div`
   display: flex;
   align-items: center;
 
-  svg {
+  & > *:first-child {
     flex-shrink: 0;
     margin-right: 16px;
-    opacity: 0.6;
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
+  & > *:nth-child(2) {
+    display: block;
     flex: 1;
 
-    strong {
-      margin-bottom: 4px;
-    }
-
-    p {
-      flex: 1;
-      min-width: 0;
-      max-width: 100%;
+    & > * {
+      display: block;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    &,
+    & > * {
       overflow: hidden;
+    }
+
+    & > *:not(:last-child) {
+      margin-bottom: 4px;
     }
   }
 `;
