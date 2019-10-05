@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function loadMeetups() {
-      const { data } = await Api.get('meetups/organizing');
+      const { data } = await Api.get('/user/meetups');
       setMeetups(data);
     }
 

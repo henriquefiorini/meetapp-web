@@ -21,7 +21,7 @@ function Meetup({ match }) {
 
   useEffect(() => {
     async function loadMeetup() {
-      const { data } = await Api.get(`meetups/organizing/${match.params.id}`);
+      const { data } = await Api.get(`/user/meetups/${match.params.id}`);
       setMeetup(data);
       setIsLoading(false);
     }
