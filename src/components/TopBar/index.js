@@ -9,9 +9,8 @@ export default function TopBar() {
   return (
     <Navigation>
       <Container>
-        <Logo to="/" />
+        <Logo to="/">MeetApp</Logo>
         <Menu>
-          <Link to="/">Dashboard</Link>
           <Link to="/profile">
             <Avatar src={profile && profile.avatar && profile.avatar.url} />
             {profile && profile.name}

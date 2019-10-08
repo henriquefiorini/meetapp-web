@@ -7,7 +7,7 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
 
   &:not(:last-child) {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   label {
@@ -19,7 +19,8 @@ export const StyledForm = styled(Form)`
     }
   }
 
-  input {
+  input,
+  textarea {
     margin-top: 8px;
   }
 

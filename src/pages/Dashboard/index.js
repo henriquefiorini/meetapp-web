@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { Page } from '~/components';
+import { Page, Button } from '~/components';
 
 import { Api } from '~/services';
+import { formatDate } from '~/util';
 
 import {
   MeetupsList,
@@ -28,13 +29,20 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Page title="My meetups">
+    <Page
+      title="My meetups"
+      actions={
+        <Button primary path="/create">
+          Create Meetup
+        </Button>
+      }
+    >
       {meetups ? (
         <MeetupsList>
           {meetups.map(meetup => (
             <Meetup key={meetup.id} to={`/meetup/${meetup.id}`}>
               <MeetupTitle>{meetup.title}</MeetupTitle>
-              <MeetupDate>{meetup.date}</MeetupDate>
+              <MeetupDate>{formatDate(meetup.date)}</MeetupDate>
               <MeetupIcon />
             </Meetup>
           ))}

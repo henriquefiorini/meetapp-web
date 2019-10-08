@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Layout, Content, Header, Card } from './styles';
+import { Layout, Content, Header, Logo, Card } from './styles';
 
 function AuthLayout({ children }) {
   return (
     <Layout>
       <Content>
-        <Header>Logo</Header>
+        <Header>
+          <Logo>MeetApp</Logo>
+        </Header>
         <Card>{children}</Card>
       </Content>
     </Layout>

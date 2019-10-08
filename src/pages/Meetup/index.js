@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { MdEvent, MdRoom } from 'react-icons/md';
 
-import { MdDateRange, MdPersonPin } from 'react-icons/md';
-import { Page } from '~/components';
+import { Page, Button } from '~/components';
 
 import { Api } from '~/services';
+import { formatDate } from '~/util';
 
 import {
-  Grid,
+  Container,
   Image,
   Date,
   Location,
@@ -31,32 +32,39 @@ function Meetup({ match }) {
   return (
     <>
       {!isLoading && meetup ? (
-        <Page title={meetup.title}>
-          <Grid>
-            <Image src="http://localhost:3333/files/a38c69108dc1ea2f51a4749f8aceda34.jpg" />
+        <Page
+          title={meetup.title}
+          actions={
+            <Button primary path={`/meetup/${meetup.id}/edit`}>
+              Edit Meetup
+            </Button>
+          }
+        >
+          <Container>
+            <Image url={meetup.banner.url} />
+            <Description>
+              <strong>Description</strong>
+              <p>{meetup.description}</p>
+            </Description>
             <Date>
               <MediaObject>
-                <MdDateRange size={36} />
+                <MdEvent size={32} />
                 <div>
                   <strong>Date</strong>
-                  <p>{meetup.date}</p>
+                  <p>{formatDate(meetup.date)}</p>
                 </div>
               </MediaObject>
             </Date>
             <Location>
               <MediaObject>
-                <MdPersonPin size={36} />
+                <MdRoom size={32} />
                 <div>
                   <strong>Location</strong>
                   <p>{meetup.location}</p>
                 </div>
               </MediaObject>
             </Location>
-            <Description>
-              <strong>Description</strong>
-              <p>{meetup.description}</p>
-            </Description>
-          </Grid>
+          </Container>
         </Page>
       ) : (
         <div>Loading...</div>

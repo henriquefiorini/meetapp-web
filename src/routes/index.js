@@ -11,6 +11,7 @@ import {
   Dashboard,
   Meetup,
   Profile,
+  UpdateOrCreateMeetup,
 } from '~/pages';
 
 export default function Routes() {
@@ -21,7 +22,13 @@ export default function Routes() {
       <Route path="/forgot" component={ForgotPassword} />
       <Route path="/reset/:token" component={ResetPassword} />
       <Route exact path="/" isPrivate component={Dashboard} />
-      <Route path="/meetup/:id" isPrivate component={Meetup} />
+      <Route exact path="/meetup/:id" isPrivate component={Meetup} />
+      <Route path="/create" isPrivate component={UpdateOrCreateMeetup} />
+      <Route
+        path="/meetup/:id/edit"
+        isPrivate
+        component={UpdateOrCreateMeetup}
+      />
       <Route path="/profile" isPrivate component={Profile} />
     </Switch>
   );

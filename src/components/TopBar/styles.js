@@ -28,7 +28,19 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled(NavLink)`
+  margin: 0;
   flex-shrink: 0;
+  color: #0c344b;
+  font-family: Rancho;
+  font-weight: normal;
+  font-size: 28px;
+  user-select: none;
+  transition: all 250ms ease 0s;
+
+  &:hover,
+  &:active {
+    color: #9f6bf4;
+  }
 `;
 
 export const Menu = styled.div`
@@ -58,6 +70,10 @@ export const Link = styled(NavLink).attrs({
 
   &.active {
     color: #0c344b;
+  }
+
+  &:only-child {
+    margin-left: auto;
   }
 `;
 

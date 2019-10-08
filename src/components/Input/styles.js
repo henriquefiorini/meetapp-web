@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
 
 import Input from './Input';
 
 export const StyledInput = styled(Input)`
   display: inline-block;
-  height: 44px;
+  max-width: 100%;
+  height: ${props => (props.multiline ? '80px' : '44px')};
   padding-right: 16px;
   padding-left: 16px;
   background-color: white;
@@ -13,6 +14,16 @@ export const StyledInput = styled(Input)`
   border-radius: 4px;
   line-height: 44px;
   transition: all 0.1s linear 0s;
+
+  ${props =>
+    props.multiline &&
+    css`
+      padding-top: 12px;
+      padding-bottom: 12px;
+      line-height: 1.5;
+      resize: none;
+      overflow-y: auto;
+    `}
 
   &:focus {
     border-color: transparent;

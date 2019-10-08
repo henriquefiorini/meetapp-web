@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Header, Title, Content } from './styles';
+import { Container, Header, Title, Actions, Content } from './styles';
 
-function Page({ title, children }) {
+function Page({ title, actions, children }) {
   return (
     <Container>
-      {title && (
+      {(title || actions) && (
         <Header>
-          <Title>{title}</Title>
+          {title && <Title>{title}</Title>}
+          {actions && <Actions>{actions}</Actions>}
         </Header>
       )}
       <Content>{children}</Content>
@@ -18,6 +19,10 @@ function Page({ title, children }) {
 
 Page.propTypes = {
   title: PropTypes.string,
+  actions: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
@@ -26,6 +31,7 @@ Page.propTypes = {
 
 Page.defaultProps = {
   title: null,
+  actions: null,
 };
 
 export default Page;

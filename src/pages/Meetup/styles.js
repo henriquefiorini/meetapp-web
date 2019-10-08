@@ -2,37 +2,44 @@ import styled from 'styled-components';
 
 import { Card } from '~/components';
 
-export const Grid = styled.div`
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: repeat(auto-fit, 444px);
-  grid-template-areas: 'image image' 'date location' 'description description';
-
-  & > * {
-    overflow: hidden;
-  }
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Image = styled(Card)`
-  grid-area: image;
-
+  flex: 1 0 100%;
   height: 320px;
-  background-image: url(${props => props.src});
+  margin-bottom: 24px;
+  background-image: url(${props => props.url});
   background-size: cover;
   background-position: center;
   border-radius: 8px;
 `;
 
+export const Description = styled(Card)`
+  flex: 1 0 100%;
+  margin-bottom: 24px;
+
+  & > * {
+    display: block;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
 export const Date = styled(Card)`
-  grid-area: date;
+  flex: 1;
+  margin-right: 12px;
+  margin-bottom: 24px;
 `;
 
 export const Location = styled(Card)`
-  grid-area: location;
-`;
-
-export const Description = styled(Card)`
-  grid-area: description;
+  flex: 1;
+  margin-bottom: 24px;
+  margin-left: 12px;
 `;
 
 export const MediaObject = styled.div`

@@ -18,6 +18,19 @@ export const Title = styled.h1`
   font-weight: 400;
 `;
 
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+
+  &:not(:first-child) {
+    margin-left: auto;
+  }
+
+  & > * {
+    margin-left: 16px;
+  }
+`;
+
 export const Content = styled.main`
   display: block;
 `;

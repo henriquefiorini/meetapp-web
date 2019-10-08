@@ -8,9 +8,7 @@ const colors = {
   negative: '#ff4f56',
 };
 
-const Button = styled.button.attrs(({ type = 'button' }) => ({
-  type,
-}))`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,5 +58,3 @@ const Button = styled.button.attrs(({ type = 'button' }) => ({
       }
     `};
 `;
-
-export default Button;
