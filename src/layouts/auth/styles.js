@@ -32,6 +32,7 @@ export const Logo = styled.h1`
   color: #0c344b;
   font-family: Rancho;
   font-size: 40px;
+  font-weight: normal;
   user-select: none;
   cursor: default;
 `;
