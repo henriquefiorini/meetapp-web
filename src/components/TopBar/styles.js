@@ -77,10 +77,16 @@ export const Link = styled(NavLink).attrs({
   }
 `;
 
-export const Avatar = styled.img`
+export const Avatar = styled.div`
   width: 32px;
   height: 32px;
   margin-right: 8px;
   border-radius: 16px;
   background-color: #ccd9df;
+  background-image: ${props =>
+    props.src
+      ? `url(${props.src})`
+      : 'url(https://api.adorable.io/avatars/32/abott@adorable.png)'};
+  background-size: cover;
+  background-position: 50%;
 `;

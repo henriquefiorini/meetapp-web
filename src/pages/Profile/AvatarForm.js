@@ -7,7 +7,7 @@ import { Api } from '~/services';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
-import { AvatarInput } from './styles';
+import AvatarInput from './AvatarInput';
 
 function AvatarForm({ initialData }) {
   const dispatch = useDispatch();
@@ -32,21 +32,21 @@ function AvatarForm({ initialData }) {
   }
 
   return (
-    <AvatarInput>
-      <label htmlFor="avatar">
-        <img src={previewUrl} alt="" />
+    <AvatarInput.Container>
+      <AvatarInput.Wrapper htmlFor="avatar">
+        <AvatarInput.Image src={previewUrl} />
         <input
           id="avatar"
           type="file"
           accept="image/*"
           onChange={handleChange}
         />
-        <span>
+        <AvatarInput.Button>
           <MdEdit size={16} />
           Edit
-        </span>
-      </label>
-    </AvatarInput>
+        </AvatarInput.Button>
+      </AvatarInput.Wrapper>
+    </AvatarInput.Container>
   );
 }
 
