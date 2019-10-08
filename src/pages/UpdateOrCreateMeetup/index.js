@@ -6,6 +6,8 @@ import { Page, Card, Form, Input, Button } from '~/components';
 
 import { Api } from '~/services';
 
+import BannerInput from './BannerInput';
+
 const schema = Yup.object().shape({
   title: Yup.string().required(),
   description: Yup.string().required(),
@@ -48,6 +50,7 @@ function UpdateOrCreateMeetup({ match }) {
               validationSchema={schema}
               onSubmit={handleSubmit}
             >
+              <BannerInput banner={meetup && meetup.banner} />
               <Input
                 name="title"
                 type="text"

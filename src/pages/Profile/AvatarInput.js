@@ -12,10 +12,10 @@ export const Wrapper = styled.label`
   margin: 0 auto;
   color: blue;
   cursor: pointer;
+`;
 
-  & > input {
-    display: none;
-  }
+export const Input = styled.input`
+  display: none;
 `;
 
 export const Image = styled.div`
@@ -56,6 +56,7 @@ export const Button = styled.span`
 export default {
   Container,
   Wrapper,
+  Input,
   Image,
   Button,
 };

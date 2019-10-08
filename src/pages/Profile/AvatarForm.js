@@ -35,7 +35,7 @@ function AvatarForm({ initialData }) {
     <AvatarInput.Container>
       <AvatarInput.Wrapper htmlFor="avatar">
         <AvatarInput.Image src={previewUrl} />
-        <input
+        <AvatarInput.Input
           id="avatar"
           type="file"
           accept="image/*"
