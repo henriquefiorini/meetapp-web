@@ -50,3 +50,9 @@ export const Input = styled.input.attrs({
 })`
   display: none;
 `;
+
+export const Error = styled.span`
+  display: block;
+  margin-top: 8px;
+  font-weight: normal;
+`;

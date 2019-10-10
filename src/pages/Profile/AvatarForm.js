@@ -1,67 +1,35 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { MdEdit } from 'react-icons/md';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from 'yup';
 
-import { Api } from '~/services';
+import { Form, Button } from '~/components';
+
+import AvatarInput from './components/AvatarInput';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
-import AvatarInput from './AvatarInput';
+const schema = Yup.object().shape({
+  avatar_id: Yup.string().required(),
+});
 
-function AvatarForm({ initialData }) {
+function AvatarForm() {
   const dispatch = useDispatch();
 
-  const [previewUrl, setPreviewUrl] = useState(
-    initialData.avatar && initialData.avatar.url,
-  );
+  const profile = useSelector(state => state.user.profile);
+  const isLoading = useSelector(state => state.user.isLoading);
 
-  async function handleChange(e) {
-    // Upload selected file
-    const data = new FormData();
-    data.append('file', e.target.files[0]);
-
-    const response = await Api.post('files', data);
-    const { id, url } = response.data;
-
-    // Update user profile with the avatar_id
-    dispatch(updateProfileRequest({ avatar_id: id }));
-
-    // Update preview URL
-    setPreviewUrl(url);
+  function handleSubmit(data) {
+    dispatch(updateProfileRequest(data));
   }
 
   return (
-    <AvatarInput.Container>
-      <AvatarInput.Wrapper htmlFor="avatar">
-        <AvatarInput.Image src={previewUrl} />
-        <AvatarInput.Input
-          id="avatar"
-          type="file"
-          accept="image/*"
-          onChange={handleChange}
-        />
-        <AvatarInput.Button>
-          <MdEdit size={16} />
-          Edit
-        </AvatarInput.Button>
-      </AvatarInput.Wrapper>
-    </AvatarInput.Container>
+    <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
+      <AvatarInput name="avatar" placeholder="Change picture" />
+      <Button positive type="submit" disabled={isLoading}>
+        Update Profile Picture
+      </Button>
+    </Form>
   );
 }
-
-AvatarForm.propTypes = {
-  initialData: PropTypes.shape({
-    avatar: PropTypes.shape({
-      id: PropTypes.number,
-      path: PropTypes.string,
-      url: PropTypes.string,
-    }),
-  }),
-};
-
-AvatarForm.defaultProps = {
-  initialData: null,
-};
 
 export default AvatarForm;

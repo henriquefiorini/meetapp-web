@@ -30,7 +30,7 @@ function ForgotPassword({ match }) {
 
   return (
     <Page title="Change your password">
-      <Form validationSchema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <p>
           In order to <strong>protect your account</strong>, make sure your
           password:

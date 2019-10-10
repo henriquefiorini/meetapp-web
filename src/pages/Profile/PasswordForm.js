@@ -32,7 +32,7 @@ function PasswordForm() {
   }
 
   return (
-    <Form validationSchema={schema} onSubmit={handleSubmit}>
+    <Form schema={schema} onSubmit={handleSubmit}>
       <Input
         name="oldPassword"
         type="password"

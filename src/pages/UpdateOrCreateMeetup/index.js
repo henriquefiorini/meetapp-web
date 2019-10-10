@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 
-import { Page, Card, Form, Input, Button } from '~/components';
+import { parseISO } from 'date-fns';
+import { Page, Card, Form, Input, DatePicker, Button } from '~/components';
+
+import ImageInput from './components/ImageInput';
 
 import { Api } from '~/services';
 
-import BannerInput from './BannerInput';
+import { createMeetupRequest } from '~/store/modules/meetup/actions';
 
 const schema = Yup.object().shape({
+  banner_id: Yup.string().required(),
   title: Yup.string().required(),
   description: Yup.string().required(),
   date: Yup.date()
@@ -18,12 +23,19 @@ const schema = Yup.object().shape({
 });
 
 function UpdateOrCreateMeetup({ match }) {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.user.isLoading);
+
   const [meetup, setMeetup] = useState();
   const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
     async function loadMeetup(id) {
-      const { data } = await Api.get(`/user/meetups/${id}`);
+      const response = await Api.get(`/user/meetups/${id}`);
+      const data = {
+        ...response.data,
+        date: parseISO(response.data.date),
+      };
       setMeetup(data);
       setIsFetching(false);
     }
@@ -36,8 +48,10 @@ function UpdateOrCreateMeetup({ match }) {
     }
   }, [match.params, match.params.id]);
 
-  function handleSubmit({ title, description, date, location }) {
-    console.tron.log(title, description, date, location);
+  function handleSubmit({ title, description, date, location, banner_id }) {
+    dispatch(
+      createMeetupRequest({ title, description, date, location, banner_id }),
+    );
   }
 
   return (
@@ -45,12 +59,12 @@ function UpdateOrCreateMeetup({ match }) {
       {!isFetching ? (
         <Page title={meetup ? meetup.title : 'Create Meetup'}>
           <Card>
-            <Form
-              initialData={meetup}
-              validationSchema={schema}
-              onSubmit={handleSubmit}
-            >
-              <BannerInput banner={meetup && meetup.banner} />
+            <Form initialData={meetup} schema={schema} onSubmit={handleSubmit}>
+              <ImageInput
+                name="banner"
+                label="Cover Image"
+                placeholder="Choose an image..."
+              />
               <Input
                 name="title"
                 type="text"
@@ -64,18 +78,27 @@ function UpdateOrCreateMeetup({ match }) {
                 placeholder="e.g.: This meetup will bring together people who want to talk about and share awesome things."
                 multiline
               />
-              <Input name="date" type="datetime-local" label="Date" />
+              <DatePicker
+                name="date"
+                label="Date"
+                placeholder="Event date and time"
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                minDate={new Date()}
+              />
               <Input
                 name="location"
                 type="text"
                 label="Location"
                 placeholder="Where it will happen?"
               />
-              <Button positive type="submit">
+              <Button positive type="submit" disabled={isLoading}>
                 {meetup ? 'Save changes' : 'Create Meetup'}
               </Button>
             </Form>
-            {meetup && <Button path={`/meetup/${meetup.id}`}>Cancel</Button>}
+            {meetup && <Button path={`/meetups/${meetup.id}`}>Cancel</Button>}
           </Card>
         </Page>
       ) : (

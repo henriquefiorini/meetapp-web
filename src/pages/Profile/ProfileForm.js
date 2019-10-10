@@ -24,11 +24,7 @@ function Profile() {
   }
 
   return (
-    <Form
-      initialData={profile}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
+    <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
       <Input
         name="name"
         type="text"

@@ -35,7 +35,7 @@ function Meetup({ match }) {
         <Page
           title={meetup.title}
           actions={
-            <Button primary path={`/meetup/${meetup.id}/edit`}>
+            <Button primary path={`/meetups/${meetup.id}/edit`}>
               Edit Meetup
             </Button>
           }

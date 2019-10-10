@@ -26,7 +26,7 @@ function SignIn() {
 
   return (
     <Page title="Sign In">
-      <Form validationSchema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <Input
           name="email"
           type="email"

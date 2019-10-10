@@ -22,10 +22,10 @@ export default function Routes() {
       <Route path="/forgot" component={ForgotPassword} />
       <Route path="/reset/:token" component={ResetPassword} />
       <Route exact path="/" isPrivate component={Dashboard} />
-      <Route exact path="/meetup/:id" isPrivate component={Meetup} />
+      <Route exact path="/meetups/:id" isPrivate component={Meetup} />
       <Route path="/create" isPrivate component={UpdateOrCreateMeetup} />
       <Route
-        path="/meetup/:id/edit"
+        path="/meetups/:id/edit"
         isPrivate
         component={UpdateOrCreateMeetup}
       />

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import { Form as Unform } from '@rocketseat/unform';
 
-import Form from './Form';
-
-export const StyledForm = styled(Form)`
+const Form = styled(Unform)`
   display: flex;
   flex-direction: column;
 
@@ -20,12 +19,13 @@ export const StyledForm = styled(Form)`
   }
 
   input,
-  textarea {
+  textarea,
+  span,
+  small {
     margin-top: 8px;
   }
 
-  small {
-    margin-top: 8px;
+  span {
     color: #ff4f56;
     font-size: 12px;
   }
@@ -34,3 +34,5 @@ export const StyledForm = styled(Form)`
     margin-top: 16px;
   }
 `;
+
+export default Form;

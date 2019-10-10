@@ -27,7 +27,7 @@ function SignUp() {
 
   return (
     <Page title="Create account">
-      <Form validationSchema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <Input
           name="name"
           type="text"

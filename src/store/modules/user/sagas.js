@@ -1,8 +1,8 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 
-import { UPDATE_PROFILE_REQUEST } from './actionTypes';
+import { Api } from '~/services';
 
-import api from '~/services/api';
+import { UPDATE_PROFILE_REQUEST } from './actionTypes';
 import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
@@ -16,7 +16,7 @@ export function* updateProfile({ payload }) {
       ...(rest.oldPassword && rest),
     };
 
-    const response = yield call(api.put, 'users', profile);
+    const response = yield call(Api.put, 'users', profile);
 
     yield put(updateProfileSuccess(response.data));
   } catch (err) {

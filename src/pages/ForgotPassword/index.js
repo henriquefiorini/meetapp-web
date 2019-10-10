@@ -35,7 +35,7 @@ function ForgotPassword() {
           <Link to="/signin">Back to Sign In</Link>
         </>
       ) : (
-        <Form validationSchema={schema} onSubmit={handleSubmit}>
+        <Form schema={schema} onSubmit={handleSubmit}>
           <p>
             Enter your email address and we will send you a link to reset your
             password.

@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-import Input from './Input';
-
-export const StyledInput = styled(Input)`
+export const StyledInput = styled(ReactDatePicker)`
   display: inline-block;
-  max-width: 100%;
+  width: 100%;
   height: ${props => (props.multiline ? '80px' : '44px')};
   padding-right: 16px;
   padding-left: 16px;
