@@ -52,7 +52,7 @@ function PasswordForm() {
         placeholder="Must match the password above"
       />
       <Button positive type="submit" disabled={isLoading}>
-        Update password
+        Update Password
       </Button>
     </Form>
   );

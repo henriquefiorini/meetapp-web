@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { Form, Button } from '~/components';
 
-import AvatarInput from './components/AvatarInput';
+import AvatarInput from './AvatarInput';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 

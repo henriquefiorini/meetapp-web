@@ -7,9 +7,9 @@ import { signOut } from '~/store/modules/auth/actions';
 
 import { Card, Text } from './styles';
 
-import AvatarForm from './AvatarForm';
-import ProfileForm from './ProfileForm';
-import PasswordForm from './PasswordForm';
+import AvatarForm from './components/AvatarForm';
+import ProfileForm from './components/ProfileForm';
+import PasswordForm from './components/PasswordForm';
 
 function Profile() {
   const dispatch = useDispatch();

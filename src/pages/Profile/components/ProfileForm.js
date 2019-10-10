@@ -38,7 +38,7 @@ function Profile() {
         placeholder="you@example.com"
       />
       <Button positive type="submit" disabled={isLoading}>
-        Save changes
+        Save Changes
       </Button>
     </Form>
   );
