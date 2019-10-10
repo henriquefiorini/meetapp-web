@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { MdEvent, MdRoom } from 'react-icons/md';
 
 import { Page, Button } from '~/components';
@@ -16,7 +17,11 @@ import {
   MediaObject,
 } from './styles';
 
+import { cancelMeetup } from '~/store/modules/meetup/actions';
+
 function Meetup({ match }) {
+  const dispatch = useDispatch();
+
   const [meetup, setMeetup] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,16 +34,23 @@ function Meetup({ match }) {
     loadMeetup();
   }, [match.params.id]);
 
+  function handleCancellation(id) {
+    dispatch(cancelMeetup(id));
+  }
+
   return (
     <>
       {!isLoading && meetup ? (
         <Page
           title={meetup.title}
-          actions={
+          actions={[
             <Button primary path={`/meetups/${meetup.id}/edit`}>
               Edit Meetup
-            </Button>
-          }
+            </Button>,
+            <Button negative onClick={() => handleCancellation(meetup.id)}>
+              Cancel Meetup
+            </Button>,
+          ]}
         >
           <Container>
             <Image url={meetup.banner.url} />

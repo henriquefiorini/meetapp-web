@@ -7,6 +7,7 @@ import {
   UPDATE_MEETUP_REQUEST,
   UPDATE_MEETUP_SUCCESS,
   UPDATE_MEETUP_FAILURE,
+  CANCEL_MEETUP,
 } from './actionTypes';
 
 const initialState = {
@@ -45,6 +46,9 @@ export default function meetup(state = initialState, action) {
         draft.isLoading = false;
         break;
       }
+
+      case CANCEL_MEETUP:
+        break;
 
       default:
         break;

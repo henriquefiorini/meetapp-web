@@ -5,6 +5,7 @@ import {
   UPDATE_MEETUP_REQUEST,
   UPDATE_MEETUP_SUCCESS,
   UPDATE_MEETUP_FAILURE,
+  CANCEL_MEETUP,
 } from './actionTypes';
 
 export function createMeetupRequest(data) {
@@ -44,5 +45,12 @@ export function updateMeetupSuccess(meetup) {
 export function updateMeetupFailure() {
   return {
     type: UPDATE_MEETUP_FAILURE,
+  };
+}
+
+export function cancelMeetup(id) {
+  return {
+    type: CANCEL_MEETUP,
+    payload: { id },
   };
 }

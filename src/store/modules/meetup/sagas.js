@@ -2,7 +2,11 @@ import { call, put, all, takeLatest } from 'redux-saga/effects';
 
 import { Api, History } from '~/services';
 
-import { CREATE_MEETUP_REQUEST, UPDATE_MEETUP_REQUEST } from './actionTypes';
+import {
+  CREATE_MEETUP_REQUEST,
+  UPDATE_MEETUP_REQUEST,
+  CANCEL_MEETUP,
+} from './actionTypes';
 
 import {
   createMeetupSuccess,
@@ -53,7 +57,18 @@ export function* updateMeetup({ payload }) {
   }
 }
 
+export function* cancelMeetup({ payload }) {
+  try {
+    const { id } = payload;
+    yield call(Api.delete, `meetups/${id}`);
+    History.push('/');
+  } catch (err) {
+    console.tron.error(err);
+  }
+}
+
 export default all([
   takeLatest(CREATE_MEETUP_REQUEST, createMeetup),
   takeLatest(UPDATE_MEETUP_REQUEST, updateMeetup),
+  takeLatest(CANCEL_MEETUP, cancelMeetup),
 ]);
