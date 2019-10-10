@@ -10,7 +10,10 @@ import ImageInput from './components/ImageInput';
 
 import { Api } from '~/services';
 
-import { createMeetupRequest } from '~/store/modules/meetup/actions';
+import {
+  createMeetupRequest,
+  updateMeetupRequest,
+} from '~/store/modules/meetup/actions';
 
 const schema = Yup.object().shape({
   banner_id: Yup.string().required(),
@@ -48,10 +51,17 @@ function UpdateOrCreateMeetup({ match }) {
     }
   }, [match.params, match.params.id]);
 
-  function handleSubmit({ title, description, date, location, banner_id }) {
-    dispatch(
-      createMeetupRequest({ title, description, date, location, banner_id }),
-    );
+  function handleSubmit(data) {
+    if (meetup && meetup.id) {
+      dispatch(
+        updateMeetupRequest({
+          ...data,
+          id: meetup.id,
+        }),
+      );
+    } else {
+      dispatch(createMeetupRequest(data));
+    }
   }
 
   return (
