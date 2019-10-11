@@ -16,6 +16,9 @@ import {
 } from '~/store/modules/meetup/actions';
 
 const schema = Yup.object().shape({
+  banner: Yup.string().when('banner_id', (banner_id, field) =>
+    banner_id ? field : field.required(),
+  ),
   banner_id: Yup.string().required(),
   title: Yup.string().required(),
   description: Yup.string().required(),
