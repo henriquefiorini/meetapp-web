@@ -6,7 +6,7 @@ import { Input as UnformInput } from '@rocketseat/unform';
 const Input = styled(UnformInput)`
   display: inline-block;
   max-width: 100%;
-  height: ${props => (props.multiline ? '80px' : '44px')};
+  height: ${props => (props.multiline ? '120px' : '44px')};
   padding-right: 16px;
   padding-left: 16px;
   background-color: white;
