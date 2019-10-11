@@ -45,7 +45,7 @@ function Notifications() {
 
   useEffect(() => {
     function handleOutsideClick(e) {
-      if (ref.current.contains(e.target)) {
+      if (ref.current && ref.current.contains(e.target)) {
         return;
       }
       setIsVisible(!isVisible);
@@ -56,6 +56,10 @@ function Notifications() {
     } else {
       document.removeEventListener('click', handleOutsideClick);
     }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
   }, [isVisible]);
 
   async function handleMarkAsRead(id) {
