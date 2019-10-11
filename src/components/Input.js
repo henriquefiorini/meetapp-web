@@ -21,7 +21,7 @@ const Input = styled(UnformInput)`
       padding-top: 12px;
       padding-bottom: 12px;
       line-height: 1.5;
-      resize: none;
+      resize: vertical;
       overflow-y: auto;
     `}
 
