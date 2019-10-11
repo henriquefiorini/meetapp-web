@@ -43,21 +43,19 @@ function Meetup({ match }) {
       {!isLoading && meetup ? (
         <Page
           title={meetup.title}
-          actions={[
-            <Button primary path={`/meetups/${meetup.id}/edit`}>
-              Edit Meetup
-            </Button>,
-            <Button negative onClick={() => handleCancellation(meetup.id)}>
-              Cancel Meetup
-            </Button>,
-          ]}
+          actions={
+            <>
+              <Button primary path={`/meetups/${meetup.id}/edit`}>
+                Edit Meetup
+              </Button>
+              <Button negative onClick={() => handleCancellation(meetup.id)}>
+                Cancel Meetup
+              </Button>
+            </>
+          }
         >
           <Container>
             <Image url={meetup.banner.url} />
-            <Description>
-              <strong>Description</strong>
-              <p>{meetup.description}</p>
-            </Description>
             <Date>
               <MediaObject>
                 <MdEvent size={32} />
@@ -76,6 +74,10 @@ function Meetup({ match }) {
                 </div>
               </MediaObject>
             </Location>
+            <Description>
+              <strong>Description</strong>
+              <p>{meetup.description}</p>
+            </Description>
           </Container>
         </Page>
       ) : (

@@ -1,4 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import { Api, History } from '~/services';
 
@@ -41,6 +42,7 @@ export function* signIn({ payload }) {
 
     History.push('/');
   } catch (err) {
+    toast.error('Authentication failed, please check your credentials.');
     yield put(authFailure());
   }
 }
@@ -60,6 +62,7 @@ export function* signUp({ payload }) {
 
     History.push('/');
   } catch (err) {
+    toast.error('Something went wrong, please try again.');
     yield put(authFailure());
   }
 }

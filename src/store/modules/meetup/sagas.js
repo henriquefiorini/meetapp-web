@@ -1,4 +1,5 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import { Api, History } from '~/services';
 
@@ -32,6 +33,7 @@ export function* createMeetup({ payload }) {
 
     History.push(`/meetups/${response.data.id}`);
   } catch (err) {
+    toast.error('Something went wrong, please try again.');
     yield put(createMeetupFailure());
   }
 }
@@ -51,8 +53,10 @@ export function* updateMeetup({ payload }) {
     const response = yield call(Api.put, `meetups/${id}`, meetup);
     yield put(updateMeetupSuccess(response.data));
 
+    toast.success('Meetup updated successfully.');
     History.push(`/meetups/${response.data.id}`);
   } catch (err) {
+    toast.error('Cannot update meetup information, please try again later.');
     yield put(updateMeetupFailure());
   }
 }
@@ -61,9 +65,10 @@ export function* cancelMeetup({ payload }) {
   try {
     const { id } = payload;
     yield call(Api.delete, `meetups/${id}`);
+    toast.success('Meetup cancelled successfully.');
     History.push('/');
   } catch (err) {
-    console.tron.error(err);
+    toast.error('Cannot cancel meetup, please try again later.');
   }
 }
 

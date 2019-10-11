@@ -17,6 +17,7 @@ export const Button = styled.button`
   border-radius: 4px;
   color: white;
   font-weight: 700;
+  white-space: nowrap;
   user-select: none;
 
   ${props => {

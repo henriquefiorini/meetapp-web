@@ -8,17 +8,25 @@ export const Container = styled.div`
 `;
 
 export const Image = styled(Card)`
-  flex: 1 0 100%;
+  width: 100%;
   height: 320px;
   margin-bottom: 24px;
   background-image: url(${props => props.url});
   background-size: cover;
-  background-position: center;
+  background-position: 50%;
   border-radius: 8px;
+
+  @media (max-width: 640px) {
+    height: 240px;
+  }
+
+  @media (max-width: 440px) {
+    height: 200px;
+  }
 `;
 
 export const Description = styled(Card)`
-  flex: 1 0 100%;
+  width: 100%;
   margin-bottom: 24px;
 
   & > * {
@@ -31,15 +39,25 @@ export const Description = styled(Card)`
 `;
 
 export const Date = styled(Card)`
-  flex: 1;
+  width: calc(50% - 12px);
   margin-right: 12px;
   margin-bottom: 24px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    margin: 0 0 24px;
+  }
 `;
 
 export const Location = styled(Card)`
-  flex: 1;
+  width: calc(50% - 12px);
   margin-bottom: 24px;
   margin-left: 12px;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    margin: 0 0 24px;
+  }
 `;
 
 export const MediaObject = styled.div`
