@@ -80,14 +80,19 @@ export function* forgotPassword({ payload }) {
 export function* resetPassword({ payload }) {
   try {
     const { token, password, passwordConfirmation } = payload;
-    yield call(Api.post, 'reset_password', {
+    const response = yield call(Api.post, 'reset_password', {
       token,
       password,
       passwordConfirmation,
     });
-    yield put(resetPasswordSuccess());
+
+    const { token: authToken, user } = response.data;
+    Api.defaults.headers.authorization = `Bearer ${authToken}`;
+    yield put(resetPasswordSuccess(authToken, user));
+
     History.push('/');
   } catch (err) {
+    toast.error('Something went wrong, please try again.');
     yield put(authFailure());
   }
 }
