@@ -46,7 +46,7 @@ export const Logo = styled(NavLink)`
 export const Menu = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex: 1;
 `;
 
@@ -70,10 +70,6 @@ export const Link = styled(NavLink).attrs({
 
   &.active {
     color: #0c344b;
-  }
-
-  &:only-child {
-    margin-left: auto;
   }
 `;
 
